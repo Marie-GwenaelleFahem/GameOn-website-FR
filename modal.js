@@ -11,41 +11,76 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-
-const prenom = document.getElementById('first');
-const nom = document.getElementById('last');
-const email = document.getElementById('email');
-const dateDeNaissance = document.getElementById('birthdate');
+const modal = document.getElementById('modal');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 formData.addEventListener('text-control', (e) => {
   e.preventDefault();
 
-  checkInputs();
+  validatePrenom();
+  validateNom();
+  validateEmail();
 })
 
-// checking inputs function
-function checkInputs(){
-  const firstValue = first.value.trim();
-  const lastValue = last.value.trim();
-  const emailValue = email.value.trim();
-  const birthdate = birthdate.value.trim();
-
-  if(firstName === '') {
-    setErrorFor(first, 'Entrée incorrecte');
-  } else {
-    setSuccessFor(first);
+// close modal
+function modalDisplay(displayStyle) {
+  modal.style.display = displayStyle 
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
   }
 }
 
-function setErrorFor(input, message) {
-  const formData = input.parentElement;
-  const small = formData.querySelector('small');
+// checking inputs functions
+function validatePrenom() {
+  let prenom = form.elements["text"];
+  let error = document.getElementById("error-prenom");
+  if(checkString.test(prenom.value) === false) {
+    prenom.classList.add("input-error");
+    error.innerText = "Saisi incorrecte, veuillez entrer 2 caractères alphabétiques ou plus dans le champ du prénom";
+    return false;
+  } else {
+    prenom.classList.remove("input-error");
+    prenom.classList.add("input-validate");
+    prenom.innerText = "";
+    return true;
+  }
+}
 
-  small.innerText = message;
+function validateNom() {
+  let nom = form.elements["text"];
+  let error = document.getElementById("error-nom");
+  if(checkString.test(nom.value) === false) {
+    nom.classList.add("input-error");
+    error.innerText = "Veuillez entrer 2 caractères ou plus dans le champ du nom'";
+    return false;
+  } else {
+    nom.classList.remove("input-error");
+    nom.classList.add("input-validate");
+    nom.innerText = "";
+    return true;
+  }
+}
 
-  formData.className = 'form-data error';
+function validateEmail() {
+  let email = form.elements["text"];
+  let error = document.getElementById("error-email");
+  if(checkMail.test(email.value) === false) {
+    email.classList.add("input-error");
+    error.innerText = "Veuillez entrer un email valide";
+    return false;
+  } else {
+    email.classList.remove("input-error");
+    email.classList.add("input-validate");
+    email.innerText = "";
+    return true;
+  }
+}
+
+function validateBirthdate() {
+  
 }
 
 // launch modal form
@@ -54,4 +89,7 @@ function launchModal() {
 }
 
 // regex
-const regexChar = /\([A-Z])(a-z)/w
+
+let checkString = /^[a-zA-Z]{2}/;
+let checkMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+

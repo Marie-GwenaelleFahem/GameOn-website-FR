@@ -68,6 +68,16 @@ img {
   display: none;
 }
 
+.input-error {
+  border: 1px;
+  color: red;
+}
+
+.input-validate {
+  border: 1px;
+  color: green;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {

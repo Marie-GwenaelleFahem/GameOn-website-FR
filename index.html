@@ -52,9 +52,9 @@
         </button>
       </div>
 
-      <div class="bground">
+      <div class="bground" id="modal">
         <div class="content">
-          <span class="close"></span>
+          <span onclick="modalDisplay('none')" class="close"></span>
           <div class="modal-body">
             <form
               name="reserve"
@@ -65,37 +65,43 @@
               <div
                 class="formData">
                 <label>Prénom</label><br>
+                <span id="error-prenom"></span>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
+                  onchange="validatePrenom()";
                 /><br>
               </div>
               <div
                 class="formData">
                 <label>Nom</label><br>
+                <span id="error-nom"></span>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
+                  onchange="validateNom()";
                 /><br>
               </div>
               <div
                 class="formData">
                 <label>E-mail</label><br>
+                <span id="error-email"></span>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
+                  onchange="validateEmail()";
                 /><br>
               </div>
               <div
                 class="formData">
                 <label>Date de naissance</label><br>
+                <span id="error-birthdate"></span>
                 <input
                   class="text-control"
                   type="date"
@@ -195,7 +201,7 @@
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
