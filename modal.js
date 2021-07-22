@@ -15,13 +15,9 @@ const modal = document.getElementById('modal');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-formData.addEventListener('text-control', (e) => {
-  e.preventDefault();
-
-  validatePrenom();
-  validateNom();
-  validateEmail();
-})
+formData.addEventListener("click", validatePrenom());
+formData.addEventListener("click", validateNom());
+formData.addEventListener("click", validateEmail());
 
 // close modal
 function modalDisplay(displayStyle) {
@@ -35,7 +31,7 @@ window.onclick = function(event) {
 
 // checking inputs functions
 function validatePrenom() {
-  let prenom = form.elements["text"];
+  let prenom = document.getElementById("first");
   let error = document.getElementById("error-prenom");
   if(checkString.test(prenom.value) === false) {
     prenom.classList.add("input-error");
@@ -50,7 +46,7 @@ function validatePrenom() {
 }
 
 function validateNom() {
-  let nom = form.elements["text"];
+  let nom = document.getElementById("last");
   let error = document.getElementById("error-nom");
   if(checkString.test(nom.value) === false) {
     nom.classList.add("input-error");
@@ -65,7 +61,7 @@ function validateNom() {
 }
 
 function validateEmail() {
-  let email = form.elements["text"];
+  let email = document.getElementById("email");
   let error = document.getElementById("error-email");
   if(checkMail.test(email.value) === false) {
     email.classList.add("input-error");
