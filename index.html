@@ -65,7 +65,6 @@
               <div
                 class="formData">
                 <label>Prénom</label><br>
-                <span id="error-prenom"></span>
                 <input
                   class="text-control"
                   type="text"
@@ -73,11 +72,11 @@
                   name="first"
                   onchange="validatePrenom()";
                 /><br>
+                <span id="error-prenom"></span>
               </div>
               <div
                 class="formData">
                 <label>Nom</label><br>
-                <span id="error-nom"></span>
                 <input
                   class="text-control"
                   type="text"
@@ -85,11 +84,11 @@
                   name="last"
                   onchange="validateNom()";
                 /><br>
+                <span id="error-nom"></span>
               </div>
               <div
                 class="formData">
                 <label>E-mail</label><br>
-                <span id="error-email"></span>
                 <input
                   class="text-control"
                   type="email"
@@ -97,17 +96,19 @@
                   name="email"
                   onchange="validateEmail()";
                 /><br>
+                <span id="error-email"></span>
               </div>
               <div
                 class="formData">
                 <label>Date de naissance</label><br>
-                <span id="error-birthdate"></span>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  onchange="validateBirthdate()";
                 /><br>
+                <span id="error-birthdate"></span>
               </div>
               <div
                 class="formData">
@@ -117,6 +118,7 @@
               <p class="text-label">Quelles villes ?</p>
               <div
                 class="formData">
+                <span id="error-city"></span>
                 <input
                   class="checkbox-input"
                   type="radio"
