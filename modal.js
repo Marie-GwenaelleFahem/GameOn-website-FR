@@ -31,7 +31,7 @@ window.onclick = function(event) {
 }
 
 // checking inputs functions
-function validatePrenom() {
+/*function validatePrenom() {
   // regex 
   let checkString = /^[a-zA-Z]{2}/;
   // récupération des éléments du formulaire
@@ -48,7 +48,7 @@ function validatePrenom() {
     prenom.innerText = "";
     return true;
   }
-}
+}*/
 
 function validateNom() {
   let checkString = /^[a-zA-Z]{2}/;
@@ -85,15 +85,13 @@ function validateEmail() {
 function validateBirthdate() {
   let birthdate = document.querySelectorAll("input[type=date]");
   let error = document.getElementById("error-birthdate");
-  for (i = 0; i < birthdate.length; i++) {
-    if (birthdate[i].checked) {
+    if (birthdate[i].checked == true) {
       error.innerText = "";
       return true;
     }
-    email.innerText = "Veuillez entrer une date de naissance valide";
+    birthdate.innerText = "Veuillez entrer une date de naissance valide";
     return false;
   }
-}
 
 function validateCity() {
   let cities = document.querySelectorAll("input[type=radio]");
@@ -103,7 +101,7 @@ function validateCity() {
       error.innerText = "";
       return true;
     }
-    email.innerText = "Veuillez choisir une option";
+    cities.innerText = "Veuillez choisir une option";
     return false;
   }
 }
