@@ -83,14 +83,15 @@ function validateEmail() {
 }
 
 function validateBirthdate() {
-  let birthdate = document.querySelectorAll("input[type=date]");
+  let checkDate = /^\d{2}-\d{2}-\d{4}$/;
+  let birthdate = document.getElementById("birthdate");
   let error = document.getElementById("error-birthdate");
-    if (birthdate[i].checked == true) {
-      error.innerText = "";
-      return true;
-    }
-    birthdate.innerText = "Veuillez entrer une date de naissance valide";
+    if (checkDate.test(birthdate.value) === false) {
+      birthdate.innerText = "Veuillez entrer une date de naissance valide";
     return false;
+    }
+    error.innerText = "";
+      return true;
   }
 
 function validateCity() {
