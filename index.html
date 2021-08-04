@@ -61,6 +61,7 @@
               action="index.html"
               method="get"
               onsubmit="return validate();"
+              class="registration-form"
             >
               <div
                 class="formData">
@@ -113,12 +114,12 @@
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" onchange="validateQuantity()">
+                <span id="error-quantity"></span>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
                 class="formData">
-                <span id="error-city"></span>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -126,6 +127,7 @@
                   name="location"
                   value="New York"
                 />
+                <span id="error-city"></span>
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
                   New York</label
@@ -192,10 +194,10 @@
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="checkbox1"
+                  id="acceptConditions"
                   checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="acceptConditions" required>
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -206,6 +208,7 @@
                   Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
+                <span id="error-terms"></span>
               </div>
               <input
                 class="btn-submit"

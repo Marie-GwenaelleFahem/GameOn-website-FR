@@ -78,6 +78,36 @@ img {
   color: green;
 }
 
+#error-prenom {
+  color: red;
+  font-size: .9rem;
+}
+
+#error-nom {
+  color: red;
+  font-size: .9rem;
+}
+
+#error-email {
+  color: red;
+  font-size: .9rem;
+}
+
+#error-birthdate {
+  color: red;
+  font-size: .9rem;
+}
+
+#error-quantity {
+  color: red;
+  font-size: .9rem;
+}
+
+#error-city {
+  color: red;
+  font-size: .9rem;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
