@@ -46,7 +46,7 @@ function validatePrenom() {
   } else {
     prenom.classList.remove("input-error");
     prenom.classList.add("input-validate");
-    prenom.innerText = "";
+    error.innerText = "";
     return true;
   }
 }
@@ -63,7 +63,7 @@ function validateNom() {
   } else {
     nom.classList.remove("input-error");
     nom.classList.add("input-validate");
-    nom.innerText = "";
+    error.innerText = "";
     return true;
   }
 }
@@ -80,7 +80,7 @@ function validateEmail() {
   } else {
     email.classList.remove("input-error");
     email.classList.add("input-validate");
-    email.innerText = "";
+    error.innerText = "";
     return true;
   }
 }
@@ -90,11 +90,13 @@ function validateBirthdate() {
   let birthdate = document.getElementById("birthdate");
   let error = document.getElementById("error-birthdate");
     if (checkDate.test(birthdate.value) === false) {
-      birthdate.innerText = "Veuillez entrer une date de naissance valide";
+      birthdate.classList.add("input-error");
+      error.innerText = "Veuillez entrer une date de naissance valide";
     return false;
     }
-    error.innerText = "";
     birthdate.classList.add("input-validate");
+    birthdate.classList.remove("input-error");
+    error.innerText = "";
       return true;
   }
 
@@ -103,11 +105,13 @@ function validateQuantity() {
   let quantity = document.getElementById("quantity");
   let error = document.getElementById("error-quantity");
     if (checkNumber.test(quantity.value) === false) {
-      quantity.innerText = "Veuillez entrer un nombre";
+      quantity.classList.add("input-error");
+      error.innerText = "Veuillez entrer un nombre";
       return false;
     }
-    error.innerText = "";
+    quantity.classList.remove("input-error");
     quantity.classList.add("input-validate");
+    error.innerText = "";
       return true;
 }
 
