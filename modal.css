@@ -27,7 +27,8 @@ p {
 }
 
 img {
-  padding-right: 1rem;
+  padding: 1rem;
+  width: 60%;
 }
 
 .topnav {
@@ -36,6 +37,10 @@ img {
 }
 .header-logo {
     float: left;
+    padding: 0.7rem;
+}
+.header-logo img {
+  width: 200px;
 }
 .main-navbar {
     float: right;
@@ -56,6 +61,7 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav a.active {
@@ -137,7 +143,8 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: 20px;
+    color: red;
   }
 } 
 
@@ -445,7 +452,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  /*min-height: 93vh;*/
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -454,8 +461,9 @@ input[data-error]::after {
   margin-bottom: 10px;
 }
 .hero-content {
-  padding: 51px 67px;
-  grid-column: span 4;
+  /*padding: 51px 67px;*/
+  padding: 3rem 3rem;
+  grid-column: span 7;
   background: #232323;
   color: #fff;
   position: relative;
@@ -476,15 +484,15 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: normal;
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
+  /*width: 146%;*/
   font-weight: normal;
   margin-top: 57px;
-  padding: 0;
+  /*padding: 0;*/
 }
 .btn-signup {
   outline: none;
@@ -495,7 +503,7 @@ input[data-error]::after {
   margin-top: 59px;
 }
 .hero-img {
-  grid-column: span 8;
+  grid-column: span 5;
 }
 .hero-img img {
   width: 100%;
@@ -514,7 +522,7 @@ input[data-error]::after {
   display: none;
 }
 footer {
-  padding-left: 2vw;
+  /*padding-left: 2vw;*/
   padding-right: 2vw;
   margin: 0 20px;
 }
@@ -526,7 +534,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0px;
   }
   .hero-content::after {
     content: unset;
@@ -535,16 +543,19 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2.7rem;
     white-space: normal;
+    font-weight: bold;
   }
   .hero-text {
     width: 80%;
-    font-size: 1.5rem;
+    font-size: .9rem;
+    margin: 0;
+    padding: 22px 0 23px 0;
   }
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
   }
   .hero-section > .btn-signup {
     display: block;
@@ -552,7 +563,7 @@ footer {
     padding: 12px 35px;
   }
   .copyrights {
-    margin-top: 50px;
+    margin-top: 10px;
     text-align: center;
   }
 }
