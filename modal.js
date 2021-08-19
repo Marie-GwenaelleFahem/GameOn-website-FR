@@ -13,7 +13,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const modal = document.getElementById('modal');
 const first = document.getElementById('first');
-const registrationForm = document.querySelector('.registration-form');
+/*const registrationForm = document.querySelector('.registration-form');*/
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -101,7 +101,7 @@ function validateBirthdate() {
   }
 
 function validateQuantity() {
-  let checkNumber = /^[0-9]$/;
+  let checkNumber = /^0*(?:[1-9][0-9]?|100)$/;
   let quantity = document.getElementById("quantity");
   let error = document.getElementById("error-quantity");
     if (checkNumber.test(quantity.value) === false) {
@@ -123,44 +123,56 @@ function validateCity() {
       error.innerText = "";
       return true;
     }
+  }
     error.innerText = "Veuillez choisir une option";
     return false;
   }
-}
 
 function validateTerms() {
   let terms = document.querySelector('#acceptConditions');
   let error = document.getElementById('error-terms');
-  let termsAreChecked = terms.checked;
-  if (termsAreChecked) {
-    terms.classList.add("input-error");
-    error.innerText = "Vous devez accepter les conditions d'utilisation";
-  } else {
-    terms.classList.remove("input-error");
+  if (terms.checked === true ) {
     error.innerText = "";
+    return true;
+  } else {
+    error.innerText = "Vous devez accepter les conditions d'utilisation";
+    return false;
   }
-  return termsAreChecked;
 }
 
-// Fonction qui vérifie que tout les champs sont valides
-const isFormValid = () => validatePrenom() && validateNom() && validateEmail() && validateBirthdate() && validateQuantity() && validateCity() && validateTerms() 
+//Fonction 
+function validateForm (event) {
 
-//EventListener pour le bouton submit
-registrationForm.addEventListener('submit', function(event) {
-  event.preventDefault()
-  if (isFormValid()) {
-    
+  if (validatePrenom() === false ) {
+    return false;
+  }
+  if (validateNom() === false ) {
+    return false;
+  }
+  if (validateEmail() === false ) {
+    return false;
+  }
+  if (validateBirthdate() === false ) {
+    return false;
+  }
+  if (validateQuantity() === false ) {
+    return false;
+  }
+  if (validateCity() === false ) {
+    return false;
+  }
+  if (validateTerms() === false ) {
+    return false;
+  } else {
+    event.preventDefault();
 
   }
-})
+}
 
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
 
-// regex
 
-let checkString = /^[a-zA-Z]{2}/;
-let checkMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
