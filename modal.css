@@ -114,6 +114,11 @@ img {
   font-size: .9rem;
 }
 
+#error-terms {
+  color: red;
+  font-size: .9rem;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
