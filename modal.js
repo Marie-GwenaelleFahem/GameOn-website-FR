@@ -167,7 +167,9 @@ function validateForm (event) {
     return false;
   } else {
     event.preventDefault();
-    formData.remove();
+    formData.forEach(function(node){
+      node.remove();
+    });
     let modal = document.querySelector("div.modal-body");
     let message = document.createElement("p");
     message.classList.add("message-validation");
