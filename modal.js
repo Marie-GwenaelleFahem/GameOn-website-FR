@@ -10,9 +10,13 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 const modal = document.getElementById('modal');
 const first = document.getElementById('first');
+const closeModal = modalDisplay('none');
+const myForm = document.getElementById("reserve");
+
+
+//const $registrationForm = document.querySelector('.registration-form');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -132,8 +136,8 @@ function validateCity() {
 
 // Vérifie que les conditions d'utilisations soient acceptées  
 function validateTerms() {
-  let terms = document.querySelector('#acceptConditions');
-  let error = document.getElementById('error-terms');
+  let terms = document.getElementById("acceptConditions");
+  let error = document.getElementById("error-terms");
   if (terms.checked === true) {
     error.innerText = "";
     return true;
@@ -167,9 +171,7 @@ function validateForm (event) {
     return false;
   } else {
     event.preventDefault();
-    formData.forEach(function(node){
-      node.remove();
-    });
+    myForm.remove();
     let modal = document.querySelector("div.modal-body");
     let message = document.createElement("p");
     message.classList.add("message-validation");
