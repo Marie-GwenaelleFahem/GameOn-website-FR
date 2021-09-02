@@ -13,7 +13,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.getElementById('reserve');
 const modal = document.getElementById('modal');
 const btnCloseModal = document.querySelectorAll(".button-submit")
-//const closeModal = document.getElementsByClassName("button-submit");
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
