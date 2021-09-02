@@ -12,7 +12,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.getElementById('reserve');
 const modal = document.getElementById('modal');
-const first = document.getElementById('first');
+const btnCloseModal = document.querySelectorAll(".button-submit")
+//const closeModal = document.getElementsByClassName("button-submit");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -186,5 +187,8 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+function closeModal() {
+  modal.style.display = 'none';
+}
 
 
