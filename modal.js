@@ -146,6 +146,7 @@ function validateTerms() {
 
 //Fonction qui valide les informations du formulaire et affiche un message
 function validateForm (event) {
+  event.preventDefault();
   if (validatePrenom() === false) {
     return false;
   }
@@ -167,7 +168,6 @@ function validateForm (event) {
   if (validateTerms() === false) {
     return false;
   } else {
-    event.preventDefault();
     formData.remove();
     let modal = document.querySelector("div.modal-body");
     let message = document.createElement("p");
