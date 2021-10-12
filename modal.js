@@ -36,10 +36,10 @@ window.onclick = function(event) {
 
 // Vérifie si le champ prénom possède au moins 2 caractères
 function validatePrenom() {
-  let checkString = /^[a-zA-Z]{2}/;
-  let prenom = document.getElementById("first");
-  let error = document.getElementById("error-prenom");
-  if(checkString.test(prenom.value) === false) {
+  const checkString = /^[a-zA-Z]{2}/;
+  const prenom = document.getElementById("first");
+  const error = document.getElementById("error-prenom");
+  if(checkString.test(prenom.value) !=true) {
     prenom.classList.add("input-error");
     error.innerText = "Veuillez entrer 2 caractères ou plus dans le champ du prénom";
     return false;
@@ -53,10 +53,10 @@ function validatePrenom() {
 
 // Vérifie si le champ nom possède au moins 2 caractères
 function validateNom() {
-  let checkString = /^[a-zA-Z]{2}/;
-  let nom = document.getElementById("last");
-  let error = document.getElementById("error-nom");
-  if(checkString.test(nom.value) === false) {
+  const checkString = /^[a-zA-Z]{2}/;
+  const nom = document.getElementById("last");
+  const error = document.getElementById("error-nom");
+  if(checkString.test(nom.value) !=true) {
     nom.classList.add("input-error");
     error.innerText = "Veuillez entrer 2 caractères ou plus dans le champ du nom";
     return false;
@@ -70,10 +70,10 @@ function validateNom() {
 
 // Vérifie si le champ email est valide
 function validateEmail() {
-  let checkMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  let email = document.getElementById("email");
-  let error = document.getElementById("error-email");
-  if(checkMail.test(email.value) === false) {
+  const checkMail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const email = document.getElementById("email");
+  const error = document.getElementById("error-email");
+  if(checkMail.test(email.value) !=true) {
     email.classList.add("input-error");
     error.innerText = "Veuillez entrer un email valide";
     return false;
@@ -87,10 +87,10 @@ function validateEmail() {
 
 // Vérifie la validité de la date de naissance
 function validateBirthdate() {
-  let checkDate = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
-  let birthdate = document.getElementById("birthdate");
-  let error = document.getElementById("error-birthdate");
-    if (checkDate.test(birthdate.value) === false) {
+  const checkDate = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+  const birthdate = document.getElementById("birthdate");
+  const error = document.getElementById("error-birthdate");
+    if (checkDate.test(birthdate.value) !=true) {
       birthdate.classList.add("input-error");
       error.innerText = "Veuillez entrer une date de naissance valide";
     return false;
@@ -103,10 +103,10 @@ function validateBirthdate() {
 
 // Vérifie qu'un nombre soit entré dans le champs correspondant
 function validateQuantity() {
-  let checkNumber = /^0*(?:[1-9][0-9]?|100)$/;
-  let quantity = document.getElementById("quantity");
-  let error = document.getElementById("error-quantity");
-    if (checkNumber.test(quantity.value) === false) {
+  const checkNumber = /^0*(?:[0-9]?|100)$/;
+  const quantity = document.getElementById("quantity");
+  const error = document.getElementById("error-quantity");
+    if (checkNumber.test(quantity.value) !=true) {
       quantity.classList.add("input-error");
       error.innerText = "Veuillez entrer un nombre";
       return false;
@@ -119,8 +119,8 @@ function validateQuantity() {
 
 // Vérifie qu'une ville soit séléctionnée 
 function validateCity() {
-  let cities = document.querySelectorAll("input[type=radio]");
-  let error = document.getElementById("error-city");
+  const cities = document.querySelectorAll("input[type=radio]");
+  const error = document.getElementById("error-city");
   for (i = 0; i < cities.length; i++) {
     if(cities[i].checked) {
       error.innerText = "";
@@ -133,9 +133,9 @@ function validateCity() {
 
 // Vérifie que les conditions d'utilisations soient acceptées  
 function validateTerms() {
-  let terms = document.querySelector('#acceptConditions');
-  let error = document.getElementById('error-terms');
-  if (terms.checked === true) {
+  const terms = document.querySelector('#acceptConditions');
+  const error = document.getElementById('error-terms');
+  if (terms.checked !=false) {
     error.innerText = "";
     return true;
   } else {
@@ -147,39 +147,43 @@ function validateTerms() {
 //Fonction qui valide les informations du formulaire et affiche un message
 function validateForm (event) {
   event.preventDefault();
-  if (validatePrenom() === false) {
+  // if (validatePrenom() === false) {
+  //   return false;
+  // }
+  // if (validateNom() === false) {
+  //   return false;
+  // }
+  // if (validateEmail() === false) {
+  //   return false;
+  // }
+  // if (validateBirthdate() === false) {
+  //   return false;
+  // }
+  // if (validateQuantity() === false) {
+  //   return false;
+  // }
+  // if (validateCity() === false) {
+  //   return false;
+  // }
+  // if (validateTerms() === false) {
+  //   return false;
+  const isFormValid = () => validatePrenom() && validateNom() && validateEmail() && validateBirthdate() && validateQuantity() && validateCity() && validateTerms()
+  if (isFormValid() !=true) {
     return false;
-  }
-  if (validateNom() === false) {
-    return false;
-  }
-  if (validateEmail() === false) {
-    return false;
-  }
-  if (validateBirthdate() === false) {
-    return false;
-  }
-  if (validateQuantity() === false) {
-    return false;
-  }
-  if (validateCity() === false) {
-    return false;
-  }
-  if (validateTerms() === false) {
-    return false;
-  } else {
-    formData.remove();
-    let modal = document.querySelector("div.modal-body");
-    let message = document.createElement("p");
-    message.classList.add("message-validation");
-    message.textContent = "Merci ! Votre réservation a été reçue";
-    modal.appendChild(message);
-    let btnCloseModal = document.createElement("button");
-    btnCloseModal.classList.add("button-submit");
-    btnCloseModal.textContent = "Fermer";
-    btnCloseModal.addEventListener("click", closeModal);
-    modal.appendChild(btnCloseModal);
-  }
+    } else {
+      formData.remove();
+      const modal = document.querySelector("div.modal-body");
+      const message = document.createElement("p");
+      message.classList.add("message-validation");
+      message.textContent = "Merci ! Votre réservation a été reçue";
+      modal.appendChild(message);
+      const btnCloseModal = document.createElement("button");
+      btnCloseModal.classList.add("button-submit");
+      btnCloseModal.textContent = "Fermer";
+      btnCloseModal.addEventListener("click", closeModal);
+      modal.appendChild(btnCloseModal);
+      return true;
+    }
 }
 
 // launch modal form
